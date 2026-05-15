@@ -73,7 +73,7 @@ INSERT INTO EMPLEADO (id_empleado, nombre_completo, rol, categoria, id_departame
   ('AF-011', 'Pedro Vega Sanz',       'TCP',                   'TCP',     2, 1, 'CCA',    'Activo'),
   ('AF-012', 'Ana Serrano Pardo',     'TCP',                   'TCP',     2, 2, 'CCA',    'Activo'),
   ('AF-013', 'Marta López Ruiz',      'TCP',                   'TCP',     2, 1, 'CCA',    'Baja temporal'),
-  ('AF-020', 'María García Cruz',     'Agente de Facturación', 'Tierra',  3, 1, '—',      'Activo'),
+  ('AF-020', 'Flavia Rivero',     'Agente de Facturación', 'Tierra',  3, 1, '—',      'Activo'),
   ('AF-021', 'Luis Martínez Díaz',    'Agente de Embarque',    'Tierra',  3, 1, '—',      'Activo'),
   ('AF-022', 'Carmen Jiménez Vega',   'Agente de Facturación', 'Tierra',  3, 2, '—',      'Activo'),
   ('AF-030', 'Roberto López Gil',     'Agente de Rampa',       'Rampa',   4, 1, '—',      'Activo'),
