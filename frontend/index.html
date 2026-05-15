@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aerofly Company · Sistema de Gestión Interna</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="login-screen">
+  <div class="login-box">
+    <div class="login-logo">
+      <div class="login-tag">✈ &nbsp;Aerofly Company · Gestión Interna</div>
+      <h1><span>AERO</span>FLY</h1>
+      <p>Sistema de Gestión Interna · Operaciones, Flota y Personal</p>
+    </div>
+    <label>Usuario</label>
+    <input type="text" id="l-user" placeholder="usuario corporativo" autocomplete="off">
+    <label>Contraseña</label>
+    <input type="password" id="l-pass" placeholder="••••••••" autocomplete="off">
+    <button class="btn-login" id="btn-login">Acceder al sistema</button>
+    <div class="login-error" id="login-error">Credenciales incorrectas. Inténtelo de nuevo.</div>
+    <div class="login-hint">
+      <div class="hint-title">// accesos de demostración</div>
+      <table>
+        <tr><td>admin / admin123</td><td><span class="lbadge lb0">Nivel 0 · Admin</span></td></tr>
+        <tr><td>director / dir123</td><td><span class="lbadge lb1">Nivel 1 · Director</span></td></tr>
+        <tr><td>jefe / jefe123</td><td><span class="lbadge lb2">Nivel 2 · Jefe de base</span></td></tr>
+        <tr><td>agente / ag123</td><td><span class="lbadge lb3">Nivel 3 · Agente</span></td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- APP -->
+<div id="app">
+  <nav class="sidebar">
+    <div class="sidebar-brand">
+      <div class="sb-tag">✈ Aerofly Company</div>
+      <div class="sb-name">AEROFLY</div>
+      <div class="sb-sub">Sistema de Gestión Interna</div>
+    </div>
+    <div class="user-chip">
+      <div class="uc-name" id="sb-name">—</div>
+      <div class="uc-role" id="sb-role">—</div>
+    </div>
+    <div class="sidebar-nav" id="sidebar-nav"></div>
+    <div class="sidebar-foot">
+      <button class="btn-logout" id="btn-logout">Cerrar sesión</button>
+    </div>
+  </nav>
+
+  <div class="main"><div class="main-inner">
+
+    <!-- DASHBOARD -->
+    <div class="section active" id="sec-dashboard">
+      <div class="page-head">
+        <div><h1>Panel de control</h1><p>Estado general · <span id="dash-date"></span></p></div>
+        <span class="access-badge lbadge" id="dash-badge"></span>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-card"><div class="sc-icon">✈</div><div class="sc-val">13</div><div class="sc-label">Aeronaves en flota</div><div class="sc-sub">9 Aerofly · 4 Air Nostrum</div></div>
+        <div class="stat-card"><div class="sc-icon">🛫</div><div class="sc-val">8</div><div class="sc-label">Vuelos hoy</div><div class="sc-sub">MAD · BCN · VLC · LHR · JFK · MEX</div></div>
+        <div class="stat-card"><div class="sc-icon">👥</div><div class="sc-val">17</div><div class="sc-label">Empleados activos</div><div class="sc-sub">Pilotos · TCP · Tierra · Servicios</div></div>
+        <div class="stat-card"><div class="sc-icon">⭐</div><div class="sc-val">8</div><div class="sc-label">Clientes registrados</div><div class="sc-sub">3 Oro · 2 Plata · 3 Normal</div></div>
+      </div>
+      <div class="two-col">
+        <div class="panel">
+          <div class="panel-head"><div><h3>Próximas salidas</h3><p>Vuelos en las próximas 2 horas</p></div><span class="ph-tag">Hoy</span></div>
+          <table class="data-table">
+            <thead><tr><th>Vuelo</th><th>Ruta</th><th>Avión</th><th>Salida</th><th>GDS</th><th>Estado</th></tr></thead>
+            <tbody>
+              <tr><td class="mono-cell">AF2350</td><td>MAD → JFK</td><td class="mono-cell">EC-AAA</td><td class="mono-cell">10:15</td><td><span class="pill p-blue">Amadeus</span></td><td><span class="pill p-green">En hora</span></td></tr>
+              <tr><td class="mono-cell">AF1234</td><td>MAD → BCN</td><td class="mono-cell">EC-AAG</td><td class="mono-cell">10:40</td><td><span class="pill p-gray">Gaudi</span></td><td><span class="pill p-green">En hora</span></td></tr>
+              <tr><td class="mono-cell">AF5678</td><td>MAD → LHR</td><td class="mono-cell">EC-AAE</td><td class="mono-cell">11:05</td><td><span class="pill p-blue">Amadeus</span></td><td><span class="pill p-orange">Retrasado</span></td></tr>
+              <tr><td class="mono-cell">AF8901</td><td>MAD → MEX</td><td class="mono-cell">EC-AAB</td><td class="mono-cell">11:30</td><td><span class="pill p-blue">Amadeus</span></td><td><span class="pill p-green">En hora</span></td></tr>
+              <tr><td class="mono-cell">AF2234</td><td>MAD → SVQ</td><td class="mono-cell">EC-AAH</td><td class="mono-cell">12:00</td><td><span class="pill p-gray">Gaudi</span></td><td><span class="pill p-gray">Previsto</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="panel">
+          <div class="panel-head"><div><h3>Flota por modelo</h3><p>Aeronaves operativas / total</p></div></div>
+          <div class="panel-body">
+            <div class="bar-chart">
+              <div class="bar-row"><div class="bar-label">A350-900</div><div class="bar-track"><div class="bar-fill" style="width:100%;background:var(--blue)">2</div></div><div class="bar-val">2/2</div></div>
+              <div class="bar-row"><div class="bar-label">A321XLR</div><div class="bar-track"><div class="bar-fill" style="width:100%;background:var(--blue)">2</div></div><div class="bar-val">2/2</div></div>
+              <div class="bar-row"><div class="bar-label">A321-200</div><div class="bar-track"><div class="bar-fill" style="width:50%;background:var(--blue)">1</div></div><div class="bar-val">1/2</div></div>
+              <div class="bar-row"><div class="bar-label">A320-200</div><div class="bar-track"><div class="bar-fill" style="width:67%;background:#0D47A1">2</div></div><div class="bar-val">2/3</div></div>
+              <div class="bar-row"><div class="bar-label">ATR 72-600</div><div class="bar-track"><div class="bar-fill" style="width:100%;background:var(--gray2)">2</div></div><div class="bar-val">2/2</div></div>
+              <div class="bar-row"><div class="bar-label">CRJ-1000</div><div class="bar-track"><div class="bar-fill" style="width:50%;background:var(--gray2)">1</div></div><div class="bar-val">1/2</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="two-col">
+        <div class="panel">
+          <div class="panel-head"><div><h3>Servicios UM activos</h3><p>Menores no acompañados hoy</p></div><span class="ph-tag">UM</span></div>
+          <div class="panel-body">
+            <div style="display:flex;gap:20px;align-items:center">
+              <div style="text-align:center"><div style="font-family:var(--mono);font-size:36px;color:var(--blue3)">2</div><div style="font-size:11px;color:var(--gray)">en vuelo / pendiente</div></div>
+              <div style="flex:1;font-size:11px;color:var(--gray);line-height:1.8">
+                <div>· <span style="color:var(--white)">Alejandro García (8)</span> — AF1234 · MAD→BCN</div>
+                <div>· <span style="color:var(--white)">Lucía Martínez (11)</span> — AF2350 · MAD→JFK</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="panel-head"><div><h3>Servicios PMR activos</h3><p>Asistencia movilidad reducida</p></div><span class="ph-tag">PMR</span></div>
+          <div class="panel-body">
+            <div style="display:flex;gap:20px;align-items:center">
+              <div style="text-align:center"><div style="font-family:var(--mono);font-size:36px;color:var(--blue3)">3</div><div style="font-size:11px;color:var(--gray)">asistencias hoy</div></div>
+              <div style="flex:1;font-size:11px;color:var(--gray);line-height:1.8">
+                <div>· <span style="color:var(--white)">Carmen Rodríguez</span> — WCHR · AF1234</div>
+                <div>· <span style="color:var(--white)">José García Sanz</span> — WCHC · AF5678</div>
+                <div>· <span style="color:var(--white)">María Torres</span> — BLND · AF2350</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FLOTA -->
+    <div class="section" id="sec-flota">
+      <div class="page-head"><div><h1>Flota de aeronaves</h1><p>Inventario completo — Aerofly Company + Air Nostrum (regional)</p></div></div>
+      <div class="panel">
+        <div class="panel-head"><div><h3>Inventario de flota</h3><p>Filtros de búsqueda</p></div></div>
+        <div class="panel-body">
+          <div class="filter-bar">
+            <input type="text" id="f-fl-mat" placeholder="Matrícula (EC-...)">
+            <select id="f-fl-mod">
+              <option value="">Todos los modelos</option>
+              <option>A350-900</option><option>A321XLR</option><option>A321-200</option>
+              <option>A320-200</option><option>ATR 72-600</option><option>CRJ-1000</option>
+            </select>
+            <select id="f-fl-op">
+              <option value="">Todos los operadores</option>
+              <option>Aerofly</option><option>Air Nostrum</option>
+            </select>
+            <select id="f-fl-est">
+              <option value="">Todos los estados</option>
+              <option>Operativo</option><option>En mantenimiento</option><option>AOG</option>
+            </select>
+            <button class="btn-search" id="btn-filter-flota">Buscar</button>
+          </div>
+        </div>
+        <table class="data-table">
+          <thead><tr><th>Matrícula</th><th>Modelo</th><th>Fabricante</th><th>Operador</th><th>Pax total</th><th>Business</th><th>Turista</th><th>Año fab.</th><th>Base</th><th>Estado</th></tr></thead>
+          <tbody id="tbody-flota"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- VUELOS -->
+    <div class="section" id="sec-vuelos">
+      <div class="page-head"><div><h1>Vuelos del día</h1><p>Operaciones programadas · sistema GDS activo</p></div></div>
+      <div class="panel">
+        <div class="panel-head"><div><h3>Vuelos de hoy</h3></div></div>
+        <div class="panel-body">
+          <div class="filter-bar">
+            <input type="text" id="f-vl-num" placeholder="Nº vuelo (AF...)">
+            <select id="f-vl-tipo">
+              <option value="">Todos los tipos</option>
+              <option>Nacional</option><option>Internacional</option><option>Intercontinental</option>
+            </select>
+            <select id="f-vl-gds">
+              <option value="">Todos los sistemas</option>
+              <option>Amadeus</option><option>Gaudi</option>
+            </select>
+            <select id="f-vl-est">
+              <option value="">Todos los estados</option>
+              <option>En hora</option><option>Retrasado</option><option>Previsto</option><option>Aterrizado</option>
+            </select>
+            <button class="btn-search" id="btn-filter-vuelos">Buscar</button>
+          </div>
+        </div>
+        <table class="data-table">
+          <thead><tr><th>Vuelo</th><th>Origen</th><th>Destino</th><th>Aeronave</th><th>Modelo</th><th>Salida</th><th>Llegada</th><th>Tipo</th><th>GDS</th><th>Estado</th></tr></thead>
+          <tbody id="tbody-vuelos"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- PERSONAL -->
+    <div class="section" id="sec-personal">
+      <div class="page-head"><div><h1>Personal</h1><p>Plantilla por departamento y base operativa · Acceso restringido</p></div></div>
+      <div class="panel" style="margin-bottom:18px">
+        <div class="panel-head"><div><h3>Distribución de personal</h3><p>Por categoría funcional</p></div></div>
+        <div class="panel-body" style="padding:0">
+          <table class="data-table">
+            <thead><tr><th>Categoría</th><th>Madrid T4</th><th>Barcelona T1</th><th>Valencia</th><th>Total</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Pilotos</strong> <span style="font-size:10px;color:var(--gray)">(Comandantes + Copilotos)</span></td><td>2</td><td>2</td><td>—</td><td><strong>4</strong></td></tr>
+              <tr><td><strong>TCP</strong> <span style="font-size:10px;color:var(--gray)">(Tripulantes de Cabina)</span></td><td>3</td><td>1</td><td>—</td><td><strong>4</strong></td></tr>
+              <tr><td><strong>Personal de tierra — Facturación/Embarque</strong></td><td>2</td><td>1</td><td>—</td><td><strong>3</strong></td></tr>
+              <tr><td><strong>Personal de tierra — Rampa</strong></td><td>1</td><td>1</td><td>—</td><td><strong>2</strong></td></tr>
+              <tr><td><strong>Servicios especiales — UM</strong></td><td>1</td><td>1</td><td>—</td><td><strong>2</strong></td></tr>
+              <tr><td><strong>Servicios especiales — PMR</strong></td><td>2</td><td>—</td><td>—</td><td><strong>2</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="panel-head"><div><h3>Búsqueda individual</h3></div></div>
+        <div class="panel-body">
+          <div class="cat-bar" id="cat-bar-personal">
+            <button class="cat-btn active" data-cat="">Todos</button>
+            <button class="cat-btn" data-cat="Pilotos">✈ Pilotos</button>
+            <button class="cat-btn" data-cat="TCP">🧑‍✈️ TCP</button>
+            <button class="cat-btn" data-cat="Tierra">🧳 Tierra</button>
+            <button class="cat-btn" data-cat="Rampa">⚙ Rampa</button>
+            <button class="cat-btn" data-cat="UM">👶 UM</button>
+            <button class="cat-btn" data-cat="PMR">♿ PMR</button>
+          </div>
+          <div class="filter-bar">
+            <input type="text" id="f-em-nombre" placeholder="Nombre o apellido...">
+            <select id="f-em-base">
+              <option value="">Todas las bases</option>
+              <option>Madrid T4</option><option>Barcelona T1</option><option>Valencia</option>
+            </select>
+            <button class="btn-search" id="btn-filter-personal">Buscar</button>
+          </div>
+        </div>
+        <table class="data-table">
+          <thead><tr><th>Nº Empl.</th><th>Nombre</th><th>Rol</th><th>Categoría</th><th>Departamento</th><th>Base</th><th>Licencia</th><th>Estado</th></tr></thead>
+          <tbody id="tbody-personal"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- CLIENTES -->
+    <div class="section" id="sec-clientes">
+      <div class="page-head"><div><h1>Clientes</h1><p>Base de datos de pasajeros registrados y estado de tarjeta de fidelización</p></div></div>
+      <div class="panel">
+        <div class="panel-head"><div><h3>Tarjetas de fidelización</h3><p>Oro ≥ 50.000 puntos/año · Plata ≥ 25.000 · Normal hasta 24.999</p></div></div>
+        <div class="panel-body">
+          <div class="cat-bar" id="cat-bar-clientes">
+            <button class="cat-btn active" data-cat="">Todos</button>
+            <button class="cat-btn" data-cat="Oro">⭐ Oro</button>
+            <button class="cat-btn" data-cat="Plata">◈ Plata</button>
+            <button class="cat-btn" data-cat="Normal">· Normal</button>
+          </div>
+          <div class="filter-bar">
+            <input type="text" id="f-cl-nom" placeholder="Nombre del cliente...">
+            <button class="btn-search" id="btn-filter-clientes">Buscar</button>
+          </div>
+        </div>
+        <table class="data-table">
+          <thead><tr><th>ID</th><th>Nombre</th><th id="th-edad">Edad</th><th id="th-tarjeta">Nº Tarjeta</th><th>Estado</th><th>Vuelos/año</th></tr></thead>
+          <tbody id="tbody-clientes"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- SERVICIOS UM / PMR -->
+    <div class="section" id="sec-servicios">
+      <div class="page-head"><div><h1>Servicios especiales</h1><p>Gestión de menores no acompañados (UM) y pasajeros con movilidad reducida (PMR)</p></div></div>
+      <div class="serv-grid">
+        <div class="panel">
+          <div class="panel-head">
+            <div class="serv-header">
+              <div class="serv-code">UM</div>
+              <div><h3>Unaccompanied Minors</h3><div class="serv-label">Menores no acompañados — hoy</div></div>
+            </div>
+          </div>
+          <table class="data-table">
+            <thead><tr><th>ID</th><th>Menor</th><th>Edad</th><th>Vuelo</th><th>Ruta</th><th>Contacto destino</th><th>Agente</th><th>Estado</th></tr></thead>
+            <tbody id="tbody-um"></tbody>
+          </table>
+        </div>
+        <div class="panel">
+          <div class="panel-head">
+            <div class="serv-header">
+              <div class="serv-code">PMR</div>
+              <div><h3>Reduced Mobility</h3><div class="serv-label">Personas con movilidad reducida — hoy</div></div>
+            </div>
+          </div>
+          <table class="data-table">
+            <thead><tr><th>ID</th><th>Pasajero</th><th>Vuelo</th><th>Ruta</th><th>Asistencia</th><th>Agente</th><th>Estado</th></tr></thead>
+            <tbody id="tbody-pmr"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- TECNOLOGIAS -->
+    <div class="section" id="sec-tecnologias">
+      <div class="page-head"><div><h1>Tecnologías del sistema</h1><p>Plataformas y sistemas activos en Aerofly Company</p></div></div>
+      <div class="tech-grid" id="tech-grid"></div>
+    </div>
+
+    <!-- ESTADISTICAS -->
+    <div class="section" id="sec-estadisticas">
+      <div class="page-head"><div><h1>Estadísticas operativas</h1><p>Indicadores de rendimiento · Acceso Director o superior</p></div></div>
+      <div class="two-col" style="margin-bottom:18px">
+        <div class="panel">
+          <div class="panel-head"><div><h3>Disponibilidad de flota</h3><p>% aeronaves operativas por modelo</p></div></div>
+          <div class="panel-body">
+            <div class="bar-chart">
+              <div class="bar-row"><div class="bar-label">A350-900</div><div class="bar-track"><div class="bar-fill" style="width:100%;background:var(--blue)">100%</div></div><div class="bar-val">100%</div></div>
+              <div class="bar-row"><div class="bar-label">A321XLR</div><div class="bar-track"><div class="bar-fill" style="width:100%;background:var(--blue)">100%</div></div><div class="bar-val">100%</div></div>
+              <div class="bar-row"><div class="bar-label">A321-200</div><div class="bar-track"><div class="bar-fill" style="width:50%;background:#0D47A1">50%</div></div><div class="bar-val">50%</div></div>
+              <div class="bar-row"><div class="bar-label">A320-200</div><div class="bar-track"><div class="bar-fill" style="width:67%;background:#0D47A1">67%</div></div><div class="bar-val">67%</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="panel-head"><div><h3>Distribución de clientes</h3><p>Por nivel de tarjeta de fidelización</p></div></div>
+          <div class="panel-body">
+            <div class="bar-chart">
+              <div class="bar-row"><div class="bar-label">Oro</div><div class="bar-track"><div class="bar-fill" style="width:38%;background:var(--gold)">3</div></div><div class="bar-val">3 / 8</div></div>
+              <div class="bar-row"><div class="bar-label">Plata</div><div class="bar-track"><div class="bar-fill" style="width:25%;background:var(--silver)">2</div></div><div class="bar-val">2 / 8</div></div>
+              <div class="bar-row"><div class="bar-label">Normal</div><div class="bar-track"><div class="bar-fill" style="width:38%;background:var(--gray2)">3</div></div><div class="bar-val">3 / 8</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="panel-head"><div><h3>Rutas más operadas este mes</h3></div></div>
+        <div class="panel-body">
+          <div class="bar-chart">
+            <div class="bar-row"><div class="bar-label">MAD–BCN</div><div class="bar-track"><div class="bar-fill" style="width:100%;background:var(--blue)">248</div></div><div class="bar-val">248</div></div>
+            <div class="bar-row"><div class="bar-label">MAD–LHR</div><div class="bar-track"><div class="bar-fill" style="width:60%;background:var(--blue)">149</div></div><div class="bar-val">149</div></div>
+            <div class="bar-row"><div class="bar-label">MAD–MEX</div><div class="bar-track"><div class="bar-fill" style="width:48%;background:#0D47A1">119</div></div><div class="bar-val">119</div></div>
+            <div class="bar-row"><div class="bar-label">MAD–JFK</div><div class="bar-track"><div class="bar-fill" style="width:40%;background:#0D47A1">99</div></div><div class="bar-val">99</div></div>
+            <div class="bar-row"><div class="bar-label">MAD–VLC</div><div class="bar-track"><div class="bar-fill" style="width:34%;background:var(--gray2)">84</div></div><div class="bar-val">84</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="panel-head"><div><h3>Volumen mensual servicios especiales</h3></div></div>
+        <div class="panel-body">
+          <div class="bar-chart">
+            <div class="bar-row"><div class="bar-label">UM</div><div class="bar-track"><div class="bar-fill" style="width:42%;background:var(--blue)">84</div></div><div class="bar-val">84</div></div>
+            <div class="bar-row"><div class="bar-label">PMR</div><div class="bar-track"><div class="bar-fill" style="width:65%;background:var(--blue2)">130</div></div><div class="bar-val">130</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ADMIN -->
+    <div class="section" id="sec-admin">
+      <div class="page-head"><div><h1>Administración del sistema</h1><p>Operaciones DDL sobre la base de datos · Solo Nivel 0</p></div></div>
+      <div class="panel" style="margin-bottom:18px">
+        <div class="panel-head"><div><h3>Operaciones DDL</h3></div></div>
+        <div class="panel-body">
+          <div class="ddl-grid">
+            <div class="ddl-card ddl-create" data-modal="create"><div class="ddl-dot"></div><div class="ddl-t">CREATE TABLE</div><div class="ddl-s">Nueva tabla</div></div>
+            <div class="ddl-card ddl-alter"  data-modal="alter"><div class="ddl-dot"></div><div class="ddl-t">ALTER TABLE</div><div class="ddl-s">Modificar estructura</div></div>
+            <div class="ddl-card ddl-drop"   data-modal="drop"><div class="ddl-dot"></div><div class="ddl-t">DROP TABLE</div><div class="ddl-s">Eliminar tabla</div></div>
+          </div>
+          <div style="margin-bottom:8px;font-size:9px;letter-spacing:1.5px;color:var(--gray);text-transform:uppercase">// Consola SQL</div>
+          <div class="sql-console" id="sql-console"><span class="cmt">-- Aerofly DB · aerofly_app
+-- Selecciona una operación DDL para comenzar</span></div>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="panel-head"><div><h3>Tablas del sistema (esquema BCNF)</h3></div></div>
+        <div class="panel-body" style="padding:0">
+          <table class="data-table">
+            <thead><tr><th>Tabla</th><th>Filas (aprox.)</th><th>Clave primaria</th><th>Claves foráneas</th></tr></thead>
+            <tbody>
+              <tr><td class="mono-cell">MODELO_AVION</td><td>6</td><td>id_modelo</td><td>—</td></tr>
+              <tr><td class="mono-cell">BASE_OPERATIVA</td><td>4</td><td>id_base</td><td>—</td></tr>
+              <tr><td class="mono-cell">AVION</td><td>13</td><td>matricula</td><td>id_modelo, id_base</td></tr>
+              <tr><td class="mono-cell">RUTA</td><td>8</td><td>id_ruta</td><td>—</td></tr>
+              <tr><td class="mono-cell">VUELO</td><td>8</td><td>id_vuelo</td><td>id_ruta, matricula, id_base</td></tr>
+              <tr><td class="mono-cell">DEPARTAMENTO</td><td>6</td><td>id_departamento</td><td>—</td></tr>
+              <tr><td class="mono-cell">EMPLEADO</td><td>17</td><td>id_empleado</td><td>id_departamento, id_base</td></tr>
+              <tr><td class="mono-cell">CLIENTE</td><td>8</td><td>id_cliente</td><td>—</td></tr>
+              <tr><td class="mono-cell">RESERVA</td><td>—</td><td>id_reserva</td><td>id_vuelo, id_cliente</td></tr>
+              <tr><td class="mono-cell">ASIGNACION_VUELO</td><td>—</td><td>id_asignacion</td><td>id_vuelo, id_empleado</td></tr>
+              <tr><td class="mono-cell">SERVICIO_ESPECIAL</td><td>6</td><td>id_servicio</td><td>id_vuelo, id_cliente, id_empleado</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- USUARIOS -->
+    <div class="section" id="sec-usuarios">
+      <div class="page-head"><div><h1>Usuarios del sistema</h1><p>Gestión de accesos y niveles de seguridad</p></div></div>
+      <div class="panel">
+        <table class="data-table">
+          <thead><tr><th>Usuario</th><th>Nombre</th><th>Nivel</th><th>Rol</th><th>Último acceso</th><th>Estado</th></tr></thead>
+          <tbody>
+            <tr><td class="mono-cell">admin</td><td>Administrador del sistema</td><td><span class="lbadge lb0">Nivel 0</span></td><td>Admin TI</td><td>15/05/2026 09:12</td><td><span class="pill p-green">Activo</span></td></tr>
+            <tr><td class="mono-cell">director</td><td>Carlos Rodríguez Vela</td><td><span class="lbadge lb1">Nivel 1</span></td><td>Director de Operaciones</td><td>15/05/2026 08:30</td><td><span class="pill p-green">Activo</span></td></tr>
+            <tr><td class="mono-cell">jefe</td><td>Ana Martínez López</td><td><span class="lbadge lb2">Nivel 2</span></td><td>Jefa de Base MAD</td><td>14/05/2026 18:00</td><td><span class="pill p-green">Activo</span></td></tr>
+            <tr><td class="mono-cell">agente</td><td>Pedro García Sanz</td><td><span class="lbadge lb3">Nivel 3</span></td><td>Agente de Operaciones</td><td>15/05/2026 06:00</td><td><span class="pill p-green">Activo</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div></div>
+</div>
+
+<!-- MODAL DDL -->
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal-box">
+    <h3 id="modal-title"></h3>
+    <div id="modal-body"></div>
+    <div class="modal-actions" id="modal-actions"></div>
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<script src="js/data.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

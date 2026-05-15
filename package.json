@@ -1,0 +1,25 @@
+{
+  "name": "aerofly-backend",
+  "version": "1.0.0",
+  "description": "Aerofly Company · Sistema de Gestión Interna — Backend API",
+  "type": "module",
+  "main": "backend/server.js",
+  "scripts": {
+    "start":   "node backend/server.js",
+    "dev":     "node --watch backend/server.js",
+    "db:init": "psql -U aerofly -d aerofly_app -f database/schema.sql",
+    "db:seed": "psql -U aerofly -d aerofly_app -f database/seed.sql"
+  },
+  "dependencies": {
+    "cors":       "^2.8.5",
+    "express":    "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "pg":         "^8.11.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
